@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="shader">
+      <UniqueIdentifier>{8416b927-ea38-485b-94db-40a224f350cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{4f7d6502-47b7-4baf-ab94-c1c68ebce9d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="errorHandling">
+      <UniqueIdentifier>{caf1a093-3691-43d2-9e1b-615ae5f6557d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\shaders">
+      <UniqueIdentifier>{6f3b35f8-4691-4ea5-8cb1-abf197528c7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lowLevel engine stuff">
+      <UniqueIdentifier>{552d5e05-58b7-4321-bcc2-4aaeaa4d55b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lowLevel engine stuff\Observer">
+      <UniqueIdentifier>{ad5d8f5e-1b7b-4a27-8c4d-5edf9f73be20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\data structures">
+      <UniqueIdentifier>{a7c2ccf0-29c5-4762-b11d-5ef32c94c31e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Camera">
+      <UniqueIdentifier>{df827bee-3241-4f73-a90d-91ad29f293a6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="fileIO.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="errorHandling.h">
+      <Filter>errorHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="shaderSetup.h">
+      <Filter>Render\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="observerPattern.h">
+      <Filter>lowLevel engine stuff\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="dataStructures.h">
+      <Filter>Render\data structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Render\Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sdlBlubb.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="fileIO.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="errorHandling.cpp">
+      <Filter>errorHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="shaderSetup.cpp">
+      <Filter>Render\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="observerPattern.cpp">
+      <Filter>lowLevel engine stuff\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="dataStructures.cpp">
+      <Filter>Render\data structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Render\Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="sdlBlubb.rc">
+      <Filter>Ressourcendateien</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.frag">
+      <Filter>shader</Filter>
+    </None>
+    <None Include="shader.vert">
+      <Filter>shader</Filter>
+    </None>
+  </ItemGroup>
+</Project>
