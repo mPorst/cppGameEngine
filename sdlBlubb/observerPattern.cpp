@@ -59,7 +59,7 @@ GLboolean subject::addObserver(observer* observerToAdd)
 		if (indexObserver == observerToAdd)
 		{
 			#ifdef DEBUG
-				std::cout << "DEBUG: hinzuzugügender Observer befindet sich bereits in Liste" << std::endl;
+				std::cout << "DEBUG: hinzuzufügender Observer befindet sich bereits in Liste" << std::endl;
 			#endif
 			return false;
 		}

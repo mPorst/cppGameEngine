@@ -37,6 +37,15 @@
     <Filter Include="Render\Camera">
       <UniqueIdentifier>{df827bee-3241-4f73-a90d-91ad29f293a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{31fc0753-7e54-4b7a-9edc-a8ac62a468f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\renderMain">
+      <UniqueIdentifier>{aa8a75b4-0978-4169-bb36-51451984880e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lowLevel engine stuff\fileIO">
+      <UniqueIdentifier>{93395123-419b-4126-a640-4f9f751b95f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -46,9 +55,6 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="fileIO.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="errorHandling.h">
@@ -69,15 +75,18 @@
     <ClInclude Include="Camera.h">
       <Filter>Render\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="renderMain.h">
+      <Filter>Render\renderMain</Filter>
+    </ClInclude>
+    <ClInclude Include="fileIO.h">
+      <Filter>lowLevel engine stuff\fileIO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="sdlBlubb.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="fileIO.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="errorHandling.cpp">
@@ -94,6 +103,12 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Render\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="renderMain.cpp">
+      <Filter>Render\renderMain</Filter>
+    </ClCompile>
+    <ClCompile Include="fileIO.cpp">
+      <Filter>lowLevel engine stuff\fileIO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

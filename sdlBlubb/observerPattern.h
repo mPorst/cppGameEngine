@@ -5,6 +5,9 @@
 #include <iostream>
 #include <glew\glew.h>
 
+enum engine_subsystem_t { PHYSICS, RENDER, INPUT, OTHER };
+enum CODE {newInput};
+
 class observer
 {
 public:
