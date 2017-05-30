@@ -1,4 +1,7 @@
-#include "stdafx.h"
+#ifdef _WIN32
+	#include "stdafx.h"
+#endif
+
 #include "renderMain.h"
 #include <iostream>
 #include <SDL/SDL.h>
@@ -6,11 +9,15 @@
 #include "shaderSetup.h"
 #include "dataStructures.h"
 
+
+enum inputStrokes {EXIT};
+
+
 renderMain::renderMain()
 {
+	keyboard = new observer();
 	initialiseSDL();
 	initialiseGLEW();
-
 }
 
 
@@ -82,8 +89,7 @@ void renderMain::initialiseObjects()
 
 void renderMain::drawObjects()
 {
-	SDL_Event windowEvent;
-
+	
 	if (SDL_PollEvent(&windowEvent))
 	{
 		if (windowEvent.type == SDL_QUIT)

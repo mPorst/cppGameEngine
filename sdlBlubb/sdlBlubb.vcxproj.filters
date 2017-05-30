@@ -81,6 +81,12 @@
     <ClInclude Include="fileIO.h">
       <Filter>lowLevel engine stuff\fileIO</Filter>
     </ClInclude>
+    <ClInclude Include="transformations.h">
+      <Filter>Render\renderMain</Filter>
+    </ClInclude>
+    <ClInclude Include="inputManager.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -109,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="fileIO.cpp">
       <Filter>lowLevel engine stuff\fileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="transformations.cpp">
+      <Filter>Render\renderMain</Filter>
+    </ClCompile>
+    <ClCompile Include="inputManager.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

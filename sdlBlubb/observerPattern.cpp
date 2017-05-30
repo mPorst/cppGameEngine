@@ -1,4 +1,6 @@
-#include "stdafx.h"
+#ifdef _WIN32
+	#include "stdafx.h"
+#endif
 #include "observerPattern.h"
 
 #define DEBUG 0
@@ -16,15 +18,29 @@ observer::~observer()
 }
 
 //other methods
-void observer::onNotify(std::string notification)
+void observer::onNotify(subsystem_t system, button_Press_t key)
 {
+	_system = system;
+	_key = key;
+}
 
+int observer::getKey()
+{
+	if (_system != NIL_SYS)
+	{
+		_system = NIL_SYS;
+		return NIL_SYS;
+	}
 }
 
 void observer::answerPing()
 {
 
 }
+
+// variables
+subsystem_t system;
+int key;
 
 /// subject
 // constructor
@@ -40,11 +56,11 @@ subject::~subject()
 
 // other methods
 
-void subject::notify(std::string notification)
+void subject::notify(subsystem_t system, int key)
 {
 	for (observer* indexObserver : observerList)
 	{
-		indexObserver->onNotify(notification);
+		indexObserver->onNotify(system, key);
 	}
 }
 

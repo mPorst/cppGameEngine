@@ -1,6 +1,7 @@
 #pragma once
 
 #include<SDL\SDL.h>
+#include "observerPattern.h"
 
 class renderMain
 {
@@ -13,7 +14,7 @@ public:
 	
 	
 	bool breakLoop = false;
-
+	observer* keyboard;
 
 private:
 	void initialiseSDL();

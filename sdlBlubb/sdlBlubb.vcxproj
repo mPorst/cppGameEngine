@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -115,7 +115,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -155,17 +155,20 @@
     <ClInclude Include="dataStructures.h" />
     <ClInclude Include="errorHandling.h" />
     <ClInclude Include="fileIO.h" />
+    <ClInclude Include="inputManager.h" />
     <ClInclude Include="observerPattern.h" />
     <ClInclude Include="renderMain.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="shaderSetup.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="transformations.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="errorHandling.cpp" />
     <ClCompile Include="fileIO.cpp" />
+    <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="observerPattern.cpp" />
     <ClCompile Include="dataStructures.cpp" />
     <ClCompile Include="renderMain.cpp" />
@@ -177,6 +180,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="transformations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="sdlBlubb.rc" />

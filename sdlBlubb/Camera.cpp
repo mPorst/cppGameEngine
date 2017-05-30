@@ -1,4 +1,7 @@
-#include "stdafx.h"
+#ifdef _WIN32
+	#include "stdafx.h"
+#endif
+
 #include "Camera.h"
 
 

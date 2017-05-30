@@ -2,6 +2,8 @@
 
 in vec3 Position;
 
+uniform mat4 trans;
+
 void main(void)
 {
 
