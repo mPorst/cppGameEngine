@@ -46,6 +46,15 @@
     <Filter Include="lowLevel engine stuff\fileIO">
       <UniqueIdentifier>{93395123-419b-4126-a640-4f9f751b95f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{f74d1299-cbc3-4554-8016-7244fd05aeb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Forces">
+      <UniqueIdentifier>{45104754-e484-4487-8073-f6140655bde6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\object">
+      <UniqueIdentifier>{cc78eeb0-2e08-4452-9607-bd803c745db3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -87,6 +96,12 @@
     <ClInclude Include="inputManager.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="physicsObject.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="forces.h">
+      <Filter>Physics\Forces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -121,6 +136,12 @@
     </ClCompile>
     <ClCompile Include="inputManager.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="physicsObject.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="forces.cpp">
+      <Filter>Physics\Forces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
