@@ -155,8 +155,10 @@
     <ClInclude Include="dataStructures.h" />
     <ClInclude Include="errorHandling.h" />
     <ClInclude Include="fileIO.h" />
+    <ClInclude Include="forces.h" />
     <ClInclude Include="inputManager.h" />
     <ClInclude Include="observerPattern.h" />
+    <ClInclude Include="physicsObject.h" />
     <ClInclude Include="renderMain.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="shaderSetup.h" />
@@ -168,9 +170,11 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="errorHandling.cpp" />
     <ClCompile Include="fileIO.cpp" />
+    <ClCompile Include="forces.cpp" />
     <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="observerPattern.cpp" />
     <ClCompile Include="dataStructures.cpp" />
+    <ClCompile Include="physicsObject.cpp" />
     <ClCompile Include="renderMain.cpp" />
     <ClCompile Include="sdlBlubb.cpp" />
     <ClCompile Include="shaderSetup.cpp" />

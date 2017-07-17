@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 	inputManager* input = new inputManager();
 
 	// connect objects
-	input->manager->addObserver(renderer->keyboard);
+	input->manager->addObserver(renderer->keyboard); // renderer registers to inputManager
 
 	while (true)
 	{

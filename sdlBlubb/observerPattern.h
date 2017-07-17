@@ -1,4 +1,6 @@
-#pragma once
+#ifdef _WIN32
+	#pragma once
+#endif
 
 #include <vector>
 #include <string>
@@ -6,7 +8,7 @@
 #include <glew\glew.h>
 
 enum subsystem_t { NIL_SYS, PHYSICS, RENDER, INPUT, OTHER};
-enum button_Press_t { EMPTY, MOVE_FORWARD, MOVE_LEFT, MOVE_RIGHT, MOVE_BACK, MOVE_UP, MOVE_DOWN };
+enum button_Press_t { EMPTY, GAME_EXIT, MOVE_FORWARD, MOVE_LEFT, MOVE_RIGHT, MOVE_BACK, MOVE_UP, MOVE_DOWN };
 
 class observer
 {
@@ -33,7 +35,7 @@ public:
 
 	void removeObserver(observer* observerToRemove); // public API
 	GLboolean addObserver(observer* observerToAdd); // public API
-	void notify(subsystem_t system_, int key_); //send information
+	void notify(subsystem_t system_, button_Press_t key_); //send information
 
 private:
 	// variables

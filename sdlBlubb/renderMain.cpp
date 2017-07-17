@@ -10,9 +10,6 @@
 #include "dataStructures.h"
 
 
-enum inputStrokes {EXIT};
-
-
 renderMain::renderMain()
 {
 	keyboard = new observer();

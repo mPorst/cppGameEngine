@@ -26,11 +26,12 @@ void observer::onNotify(subsystem_t system, button_Press_t key)
 
 int observer::getKey()
 {
-	if (_system != NIL_SYS)
+	if (_system != NIL_SYS) // put _system to NIL state so input does not get read twice !
 	{
 		_system = NIL_SYS;
-		return NIL_SYS;
+		return _key;
 	}
+	return _key
 }
 
 void observer::answerPing()
@@ -56,7 +57,7 @@ subject::~subject()
 
 // other methods
 
-void subject::notify(subsystem_t system, int key)
+void subject::notify(subsystem_t system, button_Press_t key)
 {
 	for (observer* indexObserver : observerList)
 	{
