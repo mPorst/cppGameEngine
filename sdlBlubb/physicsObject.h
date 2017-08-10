@@ -1,6 +1,4 @@
-#ifdef _WIN32
-	#pragma once
-#endif
+#pragma once
 
 #include<glm\glm.hpp>
 
@@ -12,7 +10,7 @@ public:
 
 	float mass = 0;
 	glm::vec3 centerOfMass = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::vec3 speed = 0;
+	glm::vec3 speed = glm::vec3(0.0f, 0.0f, 0.0f);
 
 
 };

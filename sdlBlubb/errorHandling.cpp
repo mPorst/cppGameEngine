@@ -3,7 +3,7 @@
 #include "errorHandling.h"
 
 #include <iostream>
-#include <SDL\SDL.h>
+#include <SDL/SDL.h>
 
 void fatalError(std::string errorText)
 {

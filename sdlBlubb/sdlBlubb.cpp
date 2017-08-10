@@ -17,12 +17,14 @@
 int main(int argc, char* argv[])
 {
 	/// Initialise the render object
-	renderMain* renderer = new renderMain(); // initialisation done in constructor
-	renderer->initialiseObjects(); // VAOs and VBOs, shaders...
-	inputManager* input = new inputManager();
+	renderMain* renderer = new renderMain(); // Initialise new render object
+	renderer->initialiseObjects(); // VAOs and VBOs, shaders... (low level)
+	inputManager* input = new inputManager(); // Initialise the input manager
 
 	// connect objects
-	input->manager->addObserver(renderer->keyboard); // renderer registers to inputManager
+	input->sub_manager->addObserver(renderer->obs_keyboard); // renderer registers to inputManager
+
+	std::cout << "observer list size:" << input->sub_manager->observerListSize() << std::endl;
 
 	while (true)
 	{

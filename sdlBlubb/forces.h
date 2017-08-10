@@ -1,10 +1,9 @@
-#ifdef _WIN32
-	#pragma once
-#endif
+#pragma once
+
 
 #include <glm\glm.hpp>
 #include "physicsObject.h"
 
-glm::vec3 applyForce(float centerOfMass);
+void applyForce(physicsObject object, glm::vec3 force);
 
-glm::vec3 accelerationFromForce(glm::vec3 force);
+glm::vec3 accelerationFromForce(physicsObject object, glm::vec3 force);

@@ -8,7 +8,20 @@
 #include <glew\glew.h>
 
 enum subsystem_t { NIL_SYS, PHYSICS, RENDER, INPUT, OTHER};
-enum button_Press_t { EMPTY, GAME_EXIT, MOVE_FORWARD, MOVE_LEFT, MOVE_RIGHT, MOVE_BACK, MOVE_UP, MOVE_DOWN };
+enum button_Press_t { NO_KEY, GAME_EXIT, MOVE_FORWARD, MOVE_LEFT, MOVE_RIGHT, MOVE_BACK, MOVE_UP, MOVE_DOWN };
+
+struct sysKey {
+	subsystem_t system;
+	button_Press_t key;
+
+	bool operator!=(const sysKey& otherSysKey)  // I did not initially understand this: This is a comparison between the "this" object and otherSysKey.
+	{
+		if (otherSysKey.system != system && otherSysKey.key != key) return true;
+		else return false;
+	}
+};
+
+class subject;
 
 class observer
 {
@@ -17,14 +30,16 @@ public:
 	~observer();
 
 	void onNotify(subsystem_t system, button_Press_t key); // called by subject via notify
-	//void subscribe();  // not required: public API of subject
-	//void unsubscribe();// not required: public API of subject
-	void answerPing(); // 
-	int getKey();
+	void subscribe(subject* observedThing);  
+	void unsubscribe(subject* observedThing);
+	void answerPing();
+	sysKey getKey();
+	void refreshSysKey();
 
 private:
-	subsystem_t _system = NIL_SYS;
-	button_Press_t _key = EMPTY;	
+	subsystem_t _system = NIL_SYS; // initialise to "0"
+	button_Press_t _key = NO_KEY;	// initialise to "0"
+	sysKey _sysKey;
 };
 
 class subject
@@ -36,6 +51,7 @@ public:
 	void removeObserver(observer* observerToRemove); // public API
 	GLboolean addObserver(observer* observerToAdd); // public API
 	void notify(subsystem_t system_, button_Press_t key_); //send information
+	int subject::observerListSize(); 
 
 private:
 	// variables

@@ -1,17 +1,17 @@
 #ifdef _WIN32
 	#include "stdafx.h"
 #endif
+
 #include "observerPattern.h"
 
 #define DEBUG 0
 
-/// observer
 
+/// observer
 //constructor, destructor
 observer::observer()
 {
 }
-
 
 observer::~observer()
 {
@@ -24,24 +24,39 @@ void observer::onNotify(subsystem_t system, button_Press_t key)
 	_key = key;
 }
 
-int observer::getKey()
+void observer::refreshSysKey()
 {
-	if (_system != NIL_SYS) // put _system to NIL state so input does not get read twice !
+	_sysKey = { _system, _key };
+}
+
+sysKey observer::getKey()
+{
+	if (_system != NIL_SYS) // put _system and _key to NIL state so input does not get read twice !
 	{
+		sysKey temp = { _system, _key };
 		_system = NIL_SYS;
-		return _key;
+		_key = NO_KEY;
+		refreshSysKey();
+		return temp;
 	}
-	return _key
+	return _sysKey;
+}
+
+void observer::subscribe(subject* observedThing)
+{
+	observedThing->addObserver(this);
+	return;
+}
+
+void observer::unsubscribe(subject* observedThing)
+{
+
 }
 
 void observer::answerPing()
 {
 
 }
-
-// variables
-subsystem_t system;
-int key;
 
 /// subject
 // constructor
@@ -84,6 +99,11 @@ GLboolean subject::addObserver(observer* observerToAdd)
 	// if not: push back to list
 	observerList.push_back(observerToAdd); 
 	return true;
+}
+
+int subject::observerListSize()
+{
+	return observerList.size();
 }
 
 void subject::cleanObserverList()

@@ -1,7 +1,7 @@
-#ifdef _WIN32
-	#pragma once
-#endif
+#pragma once
 
+#include "observerPattern.h"
+#include <SDL/SDL.h>
 
 class inputManager
 {
@@ -12,7 +12,7 @@ public:
 	void getInput();
 
 	//variables
-	subject* manager;
+	subject* sub_manager;
 
 private:
 

@@ -12,7 +12,7 @@
 
 renderMain::renderMain()
 {
-	keyboard = new observer();
+	obs_keyboard = new observer();
 	initialiseSDL();
 	initialiseGLEW();
 }
@@ -26,7 +26,7 @@ void renderMain::initialiseSDL()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) == -1)
 	{
-		std::cout << "SDL failed to initialize due to following reason:" << std::endl;
+		std::cout << "SDL failed to initialise due to following reason:" << std::endl;
 		std::cout << SDL_GetError() << std::endl;
 	}
 
@@ -86,21 +86,23 @@ void renderMain::initialiseObjects()
 
 void renderMain::drawObjects()
 {
-	
-	if (SDL_PollEvent(&windowEvent))
+	sysKey keyboardInput = obs_keyboard->getKey();
+	sysKey nilSysKey = { NIL_SYS, NO_KEY };
+
+	if (keyboardInput != nilSysKey) // This acts as "pull event"
 	{
-		if (windowEvent.type == SDL_QUIT)
+	if (keyboardInput.key == GAME_EXIT)
 		{
 			breakLoop = true;
 		}
 	}
-	if (windowEvent.type == SDL_KEYDOWN)
+	if (keyboardInput.key != GAME_EXIT && keyboardInput.key != NO_KEY)
 	{
 		glClearColor(0.0, 0.0, 1.0, 1.0);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		//SDL_Delay(1000);
-		std::cout << "Button press" << std::endl;
+		std::cout << "Button press:" << keyboardInput.key << std::endl;
 	}
 	SDL_GL_SwapWindow(appWindow);
 }

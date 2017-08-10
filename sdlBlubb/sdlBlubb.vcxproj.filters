@@ -28,9 +28,6 @@
     <Filter Include="lowLevel engine stuff">
       <UniqueIdentifier>{552d5e05-58b7-4321-bcc2-4aaeaa4d55b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lowLevel engine stuff\Observer">
-      <UniqueIdentifier>{ad5d8f5e-1b7b-4a27-8c4d-5edf9f73be20}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Render\data structures">
       <UniqueIdentifier>{a7c2ccf0-29c5-4762-b11d-5ef32c94c31e}</UniqueIdentifier>
     </Filter>
@@ -55,6 +52,9 @@
     <Filter Include="Physics\object">
       <UniqueIdentifier>{cc78eeb0-2e08-4452-9607-bd803c745db3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lowLevel engine stuff\ObserverPattern">
+      <UniqueIdentifier>{ad5d8f5e-1b7b-4a27-8c4d-5edf9f73be20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -75,9 +75,6 @@
     <ClInclude Include="resource.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="observerPattern.h">
-      <Filter>lowLevel engine stuff\Observer</Filter>
-    </ClInclude>
     <ClInclude Include="dataStructures.h">
       <Filter>Render\data structures</Filter>
     </ClInclude>
@@ -96,18 +93,18 @@
     <ClInclude Include="inputManager.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="physicsObject.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="forces.h">
       <Filter>Physics\Forces</Filter>
+    </ClInclude>
+    <ClInclude Include="physicsObject.h">
+      <Filter>Physics\object</Filter>
+    </ClInclude>
+    <ClInclude Include="observerPattern.h">
+      <Filter>lowLevel engine stuff\ObserverPattern</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="sdlBlubb.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="errorHandling.cpp">
@@ -115,9 +112,6 @@
     </ClCompile>
     <ClCompile Include="shaderSetup.cpp">
       <Filter>Render\shaders</Filter>
-    </ClCompile>
-    <ClCompile Include="observerPattern.cpp">
-      <Filter>lowLevel engine stuff\Observer</Filter>
     </ClCompile>
     <ClCompile Include="dataStructures.cpp">
       <Filter>Render\data structures</Filter>
@@ -137,11 +131,15 @@
     <ClCompile Include="inputManager.cpp">
       <Filter>Input</Filter>
     </ClCompile>
-    <ClCompile Include="physicsObject.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="forces.cpp">
       <Filter>Physics\Forces</Filter>
+    </ClCompile>
+    <ClCompile Include="sdlBlubb.cpp" />
+    <ClCompile Include="physicsObject.cpp">
+      <Filter>Physics\object</Filter>
+    </ClCompile>
+    <ClCompile Include="observerPattern.cpp">
+      <Filter>lowLevel engine stuff\ObserverPattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

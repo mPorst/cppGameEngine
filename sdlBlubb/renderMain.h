@@ -14,7 +14,7 @@ public:
 	
 	
 	bool breakLoop = false;
-	observer* keyboard;
+	observer* obs_keyboard;
 
 private:
 	void initialiseSDL();
@@ -22,6 +22,7 @@ private:
 
 
 	SDL_Window* appWindow;
+	SDL_Event windowEvent;
 
 };
 
