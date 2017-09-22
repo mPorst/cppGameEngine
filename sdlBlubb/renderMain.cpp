@@ -89,14 +89,14 @@ void renderMain::drawObjects()
 	sysKey keyboardInput = obs_keyboard->getKey();
 	sysKey nilSysKey = { NIL_SYS, NO_KEY };
 
-	if (keyboardInput != nilSysKey) // This acts as "pull event"
+	if (keyboardInput != nilSysKey) // This acts as "pull event" -> actually done in input manager
 	{
-	if (keyboardInput.key == GAME_EXIT)
+	if (keyboardInput.key == GAME_EXIT) 
 		{
 			breakLoop = true;
 		}
 	}
-	if (keyboardInput.key != GAME_EXIT && keyboardInput.key != NO_KEY)
+	if (keyboardInput.key != GAME_EXIT && keyboardInput.key != NO_KEY)  // When a key has been pressed that is NOT exit
 	{
 		glClearColor(0.0, 0.0, 1.0, 1.0);
 		glClear(GL_COLOR_BUFFER_BIT);

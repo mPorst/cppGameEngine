@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="dataStructures.h" />
+    <ClInclude Include="entity.h" />
     <ClInclude Include="errorHandling.h" />
     <ClInclude Include="fileIO.h" />
     <ClInclude Include="forces.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="observerPattern.h" />
     <ClInclude Include="physicsObject.h" />
     <ClInclude Include="renderMain.h" />
+    <ClInclude Include="renderObject.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="shaderSetup.h" />
     <ClInclude Include="stdafx.h" />
@@ -172,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="errorHandling.cpp" />
     <ClCompile Include="fileIO.cpp" />
     <ClCompile Include="forces.cpp" />
@@ -180,6 +183,7 @@
     <ClCompile Include="dataStructures.cpp" />
     <ClCompile Include="physicsObject.cpp" />
     <ClCompile Include="renderMain.cpp" />
+    <ClCompile Include="renderObject.cpp" />
     <ClCompile Include="sdlBlubb.cpp" />
     <ClCompile Include="shaderSetup.cpp" />
     <ClCompile Include="stdafx.cpp">

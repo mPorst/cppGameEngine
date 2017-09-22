@@ -55,6 +55,12 @@
     <Filter Include="lowLevel engine stuff\ObserverPattern">
       <UniqueIdentifier>{ad5d8f5e-1b7b-4a27-8c4d-5edf9f73be20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{1a048384-7246-4b8e-9182-7f604b027820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\renderObject">
+      <UniqueIdentifier>{369e9e73-7b0f-4a40-970e-19cbabceda7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -102,6 +108,12 @@
     <ClInclude Include="observerPattern.h">
       <Filter>lowLevel engine stuff\ObserverPattern</Filter>
     </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="renderObject.h">
+      <Filter>Render\renderObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -140,6 +152,12 @@
     </ClCompile>
     <ClCompile Include="observerPattern.cpp">
       <Filter>lowLevel engine stuff\ObserverPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="renderObject.cpp">
+      <Filter>Render\renderObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

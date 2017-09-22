@@ -34,5 +34,8 @@ int main(int argc, char* argv[])
 
 	}
 
+	std::cout << "regular shutdown" << std::endl;
+	SDL_Delay(1000);
+
 	return 0;
 }
