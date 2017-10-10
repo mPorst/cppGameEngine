@@ -2,6 +2,12 @@
 
 #include<SDL\SDL.h>
 #include "observerPattern.h"
+#include <iostream>
+#include <SDL/SDL.h>
+#include <glew/glew.h>
+#include "shaderSetup.h"
+#include "dataStructures.h"
+#include "transformations.h"
 
 class renderMain
 {
@@ -15,6 +21,11 @@ public:
 	
 	bool breakLoop = false;
 	observer* obs_keyboard;
+	GLint shaderProg;
+
+	glm::mat4 trans;
+	glm::mat4 orthoMatrix;
+	GLint transMatrixLocation;
 
 private:
 	void initialiseSDL();

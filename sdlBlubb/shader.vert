@@ -6,11 +6,7 @@ uniform mat4 trans;
 
 void main(void)
 {
-
-	gl_Position.xy = Position.xy;
-
-	gl_Position.z = 0.0;
-
-	gl_Position.w = 1.0;
-
+	vec4 positionVector = vec4(Position, 1.0);
+	
+	gl_Position = trans*positionVector;
 }

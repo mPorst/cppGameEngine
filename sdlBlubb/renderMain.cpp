@@ -3,18 +3,16 @@
 #endif
 
 #include "renderMain.h"
-#include <iostream>
-#include <SDL/SDL.h>
-#include <glew/glew.h>
-#include "shaderSetup.h"
-#include "dataStructures.h"
 
 
-renderMain::renderMain()
+
+renderMain::renderMain() 
 {
 	obs_keyboard = new observer();
 	initialiseSDL();
 	initialiseGLEW();
+	orthoMatrix = glm::mat4(1.0f);
+	trans = glm::mat4(1.0f);
 }
 
 
@@ -60,7 +58,7 @@ void renderMain::initialiseObjects()
 {
 	/// get VAOs and VBOs up.
 	GLuint vbo, vao;
-
+	
 	vao = createVAO();
 	vbo = createVBO();
 
@@ -68,8 +66,9 @@ void renderMain::initialiseObjects()
 	GLfloat triangle[6] = { 1.0, 1.0, 0.0, 0.0, 1.0, 0.0 };
 	glBufferData(GL_ARRAY_BUFFER, sizeof(triangle), triangle, GL_STATIC_DRAW);
 
-	// initialize shaders
+	// initialise shaders
 	GLuint shaderProgram = shaderSetup::setupShaders();
+	shaderProg = shaderProgram;
 
 	// tell how the input for the vertex shader is called
 	glBindAttribLocation(shaderProgram, 1, "Position");
@@ -86,23 +85,49 @@ void renderMain::initialiseObjects()
 
 void renderMain::drawObjects()
 {
+	transMatrixLocation = glGetUniformLocation(shaderProg, "trans");
 	sysKey keyboardInput = obs_keyboard->getKey();
 	sysKey nilSysKey = { NIL_SYS, NO_KEY };
-
+	const float MOVEMENT_STEP = 0.1;
 	if (keyboardInput != nilSysKey) // This acts as "pull event" -> actually done in input manager
 	{
-	if (keyboardInput.key == GAME_EXIT) 
+		if (keyboardInput.key == GAME_EXIT) 
 		{
 			breakLoop = true;
+		}
+		else if (keyboardInput.key == MOVE_FORWARD)
+		{ // move forward
+			trans += glm::translate(orthoMatrix, glm::vec3(0, MOVEMENT_STEP, 0))-orthoMatrix;
+			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
+		}
+		else if (keyboardInput.key == MOVE_BACK)
+		{ // move forward
+			trans += translation(0, -MOVEMENT_STEP, 0) - orthoMatrix;
+			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
+		}
+		else if (keyboardInput.key == MOVE_LEFT)
+		{ // move forward
+			trans += glm::translate(orthoMatrix, glm::vec3(-MOVEMENT_STEP,0, 0)) - orthoMatrix;
+			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
+		}
+		else if (keyboardInput.key == MOVE_RIGHT)
+		{ // move forward
+			trans += translation(MOVEMENT_STEP,0, 0) - orthoMatrix;
+			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
 		}
 	}
 	if (keyboardInput.key != GAME_EXIT && keyboardInput.key != NO_KEY)  // When a key has been pressed that is NOT exit
 	{
-		glClearColor(0.0, 0.0, 1.0, 1.0);
-		glClear(GL_COLOR_BUFFER_BIT);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		//SDL_Delay(1000);
-		std::cout << "Button press:" << keyboardInput.key << std::endl;
+		
 	}
+	glClearColor(0.0, 0.0, 1.0, 1.0);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+	//SDL_Delay(1000);
+	//std::cout << "Button press:" << keyboardInput.key << std::endl;
 	SDL_GL_SwapWindow(appWindow);
 }

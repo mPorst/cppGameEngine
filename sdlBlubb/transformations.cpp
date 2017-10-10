@@ -15,3 +15,9 @@ glm::mat4 translation(float x, float y, float z)
 	glm::mat4 trans;
 	return glm::translate(trans, glm::vec3(x,y,z));
 }
+
+glm::mat4 translation(float x, float y)
+{
+	glm::mat4 trans;
+	return glm::translate(trans, glm::vec3(x, y, 0));
+}
