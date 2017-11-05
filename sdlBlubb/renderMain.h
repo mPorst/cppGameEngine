@@ -25,11 +25,24 @@ public:
 
 	glm::mat4 trans;
 	glm::mat4 orthoMatrix;
-	GLint transMatrixLocation;
+	GLint mvpLocation;
+	glm::mat4 model;
+	glm::mat4 view;
+	glm::mat4 projection;
+	glm::mat4 mvp;
 
 private:
 	void initialiseSDL();
 	void initialiseGLEW();
+
+	float fovy;
+	float aspectRatio;
+	float zNear;
+	float zFar;
+
+	glm::vec3 cameraPos;
+	glm::vec3 target;
+	glm::vec3 up;
 
 
 	SDL_Window* appWindow;

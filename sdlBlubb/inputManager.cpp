@@ -16,7 +16,7 @@ inputManager::~inputManager()
 }
 
 void inputManager::getInput()
-{ // initialise no NO_KEY so nothing goes wrong at program start (that bamboozled me)
+{ // initialise to NO_KEY so nothing goes wrong at program start (that bamboozled me)
 	sub_manager->notify(INPUT, NO_KEY);
 	if (SDL_PollEvent(&windowEvent))
 	{
@@ -37,6 +37,9 @@ void inputManager::getInput()
 						break;
 					case SDLK_s:
 						sub_manager->notify(INPUT, MOVE_BACK);
+						break;
+					case SDLK_0:
+						sub_manager->notify(INPUT, CAMERA_UP);
 						break;
 				break;
 		}

@@ -13,6 +13,16 @@ renderMain::renderMain()
 	initialiseGLEW();
 	orthoMatrix = glm::mat4(1.0f);
 	trans = glm::mat4(1.0f);
+	model = glm::mat4(1.0f);
+	view = glm::mat4(1.0f);
+	projection = glm::mat4(1.0f);
+	fovy = glm::radians(45.0f);
+	aspectRatio = 800 / 600; //(fixed ratio)
+	zNear = 0.1f;
+	zFar = 100.0f;
+	cameraPos = glm::vec3(1.0f, 1.0f, 1.0f);
+	target = glm::vec3(0.0f, 0.0f, 0.0f);
+	up = glm::vec3(0.0f, 1.0f, 0.0f);
 }
 
 
@@ -63,7 +73,7 @@ void renderMain::initialiseObjects()
 	vbo = createVBO();
 
 	// set data
-	GLfloat triangle[6] = { 1.0, 1.0, 0.0, 0.0, 1.0, 0.0 };
+	GLfloat triangle[12] = { 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0 };
 	glBufferData(GL_ARRAY_BUFFER, sizeof(triangle), triangle, GL_STATIC_DRAW);
 
 	// initialise shaders
@@ -85,7 +95,7 @@ void renderMain::initialiseObjects()
 
 void renderMain::drawObjects()
 {
-	transMatrixLocation = glGetUniformLocation(shaderProg, "trans");
+	mvpLocation = glGetUniformLocation(shaderProg, "mvp");
 	sysKey keyboardInput = obs_keyboard->getKey();
 	sysKey nilSysKey = { NIL_SYS, NO_KEY };
 	const float MOVEMENT_STEP = 0.1;
@@ -97,37 +107,52 @@ void renderMain::drawObjects()
 		}
 		else if (keyboardInput.key == MOVE_FORWARD)
 		{ // move forward
-			trans += glm::translate(orthoMatrix, glm::vec3(0, MOVEMENT_STEP, 0))-orthoMatrix;
-			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+			trans *= glm::translate(orthoMatrix, glm::vec3(0, 0, MOVEMENT_STEP));
 			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
 		}
 		else if (keyboardInput.key == MOVE_BACK)
-		{ // move forward
-			trans += translation(0, -MOVEMENT_STEP, 0) - orthoMatrix;
-			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+		{ // move back
+			trans *= translation(0, 0, -MOVEMENT_STEP);
 			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
 		}
 		else if (keyboardInput.key == MOVE_LEFT)
-		{ // move forward
-			trans += glm::translate(orthoMatrix, glm::vec3(-MOVEMENT_STEP,0, 0)) - orthoMatrix;
-			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+		{ // move left
+			trans *= glm::translate(orthoMatrix, glm::vec3(-MOVEMENT_STEP,0, 0));
 			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
 		}
 		else if (keyboardInput.key == MOVE_RIGHT)
-		{ // move forward
-			trans += translation(MOVEMENT_STEP,0, 0) - orthoMatrix;
-			glUniformMatrix4fv(transMatrixLocation, 1, GL_FALSE, &trans[0][0]);
+		{ // move right
+			trans *= translation(MOVEMENT_STEP,0, 0);
 			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
 		}
+		else if (keyboardInput.key == CAMERA_UP)
+		{ // move camera up
+			cameraPos += glm::vec3(0.0f, 1.0f, 0.0f);
+			std::cout << "translation Matrix:" << trans[3][0] << " " << trans[3][1] << " " << trans[3][2] << std::endl;
+		}
+
 	}
 	if (keyboardInput.key != GAME_EXIT && keyboardInput.key != NO_KEY)  // When a key has been pressed that is NOT exit
 	{
 		
 	}
+
+	// MVP matrices
+	model = trans;
+	view = glm::lookAt(cameraPos, target, up);
+	projection = glm::perspective(fovy, aspectRatio, zNear, zFar);
+	mvp = projection*view*model;
+
 	glClearColor(0.0, 0.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT);
+	// The following 4 lines are subject to change !!! should be an automated loop for EACH model !
+	glUniformMatrix4fv(mvpLocation, 1, GL_FALSE, &mvp[0][0]);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+	mvp = projection*view*orthoMatrix;
+	glUniformMatrix4fv(mvpLocation, 1, GL_FALSE, &mvp[0][0]);
+	glDrawArrays(GL_TRIANGLES, 3, 3);
 	//SDL_Delay(1000);
 	//std::cout << "Button press:" << keyboardInput.key << std::endl;
 	SDL_GL_SwapWindow(appWindow);
+	
 }

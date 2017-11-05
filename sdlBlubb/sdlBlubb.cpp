@@ -31,7 +31,6 @@ int main(int argc, char* argv[])
 		input->getInput();
 		renderer->drawObjects();
 		if (renderer->breakLoop == true) { break; }
-
 	}
 
 	std::cout << "regular shutdown" << std::endl;

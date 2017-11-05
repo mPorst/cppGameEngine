@@ -8,13 +8,13 @@
 #include <glew\glew.h>
 
 enum subsystem_t { NIL_SYS, PHYSICS, RENDER, INPUT, OTHER};
-enum button_Press_t { NO_KEY, GAME_EXIT, MOVE_FORWARD, MOVE_LEFT, MOVE_RIGHT, MOVE_BACK, MOVE_UP, MOVE_DOWN };
+enum button_Press_t { NO_KEY, GAME_EXIT, MOVE_FORWARD, MOVE_LEFT, MOVE_RIGHT, MOVE_BACK, MOVE_UP, MOVE_DOWN, CAMERA_UP };
 
 struct sysKey {
 	subsystem_t system;
 	button_Press_t key;
 
-	bool operator!=(const sysKey& otherSysKey)  // I did not initially understand this: This is a comparison between the "this" object and otherSysKey.
+	bool operator!=(const sysKey& otherSysKey)  // This is a comparison between the "this" object and otherSysKey.
 	{
 		if (otherSysKey.system != system && otherSysKey.key != key) return true;
 		else return false;
